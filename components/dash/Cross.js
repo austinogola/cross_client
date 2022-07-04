@@ -109,7 +109,7 @@ const Cross=()=>{
                         <div className="platform">
                             <div className="selection">
                                 <select name="fromPlatform" id="" onChange={handlePlatform}>
-                                    <option value="M-Pesa">M-Pesa</option>
+                                    <option value="M-Pesa">MPesa</option>
                                     <option value="Airtel">Airtel</option>
                                     <option value="Paypal">Paypal</option>
                                 </select>
@@ -172,7 +172,7 @@ const Cross=()=>{
                     }
                     .source,.dest{
                         display:grid;
-                        grid-template-columns:66% 33%;
+                        grid-template-columns:65% 35%;
                         padding:10px;
                     }
                     .amount p{

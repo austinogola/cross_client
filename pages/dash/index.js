@@ -13,6 +13,7 @@ const Dash=()=>{
     const[isLoading,setLoading]=useState(true)
 
     const checkAuth=async()=>{
+        console.log('Checking auth');
         fetch('http://localhost:4000/auth/verify',{
           method:'GET',
           headers:{jwtToken:localStorage.token}
@@ -29,6 +30,8 @@ const Dash=()=>{
 
 
     checkAuth()
+
+    console.log(showPage);
 
     
 

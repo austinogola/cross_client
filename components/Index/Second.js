@@ -35,7 +35,7 @@ const Second=()=>{
                     display:flex;
                     justify-content:center;
                     padding-top:80px;
-                    min-height:400px;
+                    min-height:300px;
                 }
                 .secondWrapper{
                     width:90%;

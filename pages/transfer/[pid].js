@@ -2,6 +2,7 @@ import { FiCircle,FiDisc } from "react-icons/fi";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import ProgressBar from "components/dash/ProgressBar";
+import Initiated from "components/transfer/Initiated";
 
 const Mimi=()=>{
     const router = useRouter()
@@ -51,10 +52,17 @@ const Mimi=()=>{
 
            <ProgressBar status={statuses[transaction.status]}/>
 
+        
+            <div className="container">
+                <Initiated />
+            </div>
+
+
             <style jsx>{`
                     .header{
                         padding-left:20px;
                         height:50px;
+                        margin-bottom:20px;
                     }
                     
                 `}</style>

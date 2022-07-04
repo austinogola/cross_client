@@ -6,9 +6,9 @@ const First=()=>{
             <div className="firstWrapper">
                 <div className="firstContent">
                     <div className="firstText">
-                        <div><h4>A simple way to</h4></div>
+                        <div><h3>A simple way to</h3></div>
                         <div><h1 class="">Transfer Funds</h1></div>
-                        <div><h4>Across all Digital Wallets</h4></div>
+                        <div><h2>Across all Digital Wallets</h2></div>
                     </div>
                     <div className="signUp">
                         <button><a href="/register">Create FREE account</a></button>
@@ -26,7 +26,7 @@ const First=()=>{
                         width:100%;
                         display:flex;
                         justify-content:center;
-                        min-height:480px;
+                        min-height:500px;
                     }
                     .First>div{
                         min-height:300px;
@@ -52,12 +52,13 @@ const First=()=>{
                     
                     .firstText h1{
                         font-weight:bolder;
+                        font-size:60px;
                     }
 
                     .firstWrapper{
                         width:90%;
                         display:grid;
-                        grid-template-columns:50% 50%;
+                        grid-template-columns:60% 40%;
 
                     }
                     .calcWrapper{

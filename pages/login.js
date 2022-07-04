@@ -38,7 +38,7 @@ const Login=()=>{
             if(res){
                 if(res.token){
                     localStorage.setItem('token',res.token)
-                    router.push('/dashboard')
+                    router.push('/dash')
                 }else{
                     setErr('Invalid credentials.Please check details and retry')
                 }

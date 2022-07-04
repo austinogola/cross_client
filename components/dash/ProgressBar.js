@@ -35,6 +35,9 @@ const ProgressBar=(props)=>{
             </div>
 
             <style jsx>{`
+                .wrapper{
+                    margin-bottom:20px;
+                }
                 .root{
                     display:flex;
                     justify-content:center;
