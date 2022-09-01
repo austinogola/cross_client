@@ -1,5 +1,5 @@
 import Select from "./select"
-import { useState } from "react"
+import { useState ,useEffect} from "react"
 import { useRouter } from "next/router"
 
 
@@ -76,6 +76,10 @@ const Cross=()=>{
         setPlatforms({...platforms,[e.target.name]:e.target.value})
     }
 
+    useEffect(()=>{
+        console.log('This really works');
+    })
+
     const handleSubmit=(e)=>{
         e.preventDefault()
         console.log(fromAmount);
@@ -109,7 +113,7 @@ const Cross=()=>{
                         <div className="platform">
                             <div className="selection">
                                 <select name="fromPlatform" id="" onChange={handlePlatform}>
-                                    <option value="M-Pesa">MPesa</option>
+                                    <option value="M-Pesa">M-Pesa</option>
                                     <option value="Airtel">Airtel</option>
                                     <option value="Paypal">Paypal</option>
                                 </select>

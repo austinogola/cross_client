@@ -1,151 +1,173 @@
-
+import Logo from "./Logo"
 
 const Navbar=(props)=>{
     const toggleLinks=(e)=>{
         e.preventDefault()
-        const navbarLinks=document.querySelector('.navbarLinks')
-        navbarLinks.classList.toggle('active')
+        const navMenu=document.querySelector('.nav-menu')
+        navMenu.classList.toggle('active')
     }
     return(
         <div className="navWrapper">
             <nav className="Navbar">
-                <div className="brandLogo">
-                    <h2><a href='/'>LogoHere</a></h2>
+                <Logo showCross={props.crosser}/>
+                {props.showRight?
+                <ul className="nav-menu">
+                    <li className="nav-item">
+                        <a href="/how" className="nav-link">How To</a>
+                    </li>
+                    <li className="nav-item">
+                        <a href="/FAQs" className="nav-link">FAQs</a>
+                    </li>
+                    <li className="nav-item">
+                        <button className="loginBtn">
+                            <a href="/login" className="nav-link">Log In</a>
+                        </button>
+                    </li>
+                    <li className="nav-item">
+                        <button className="signupBtn">
+                            <a href="/register" className="nav-link">Sign Up</a>
+                        </button>
+                    </li>
+                </ul>
+                :null}
+
+                <div className="hamburger" onClick={toggleLinks}>
+                    <span className="bar"></span>
+                    <span className="bar"></span>
+                    <span className="bar"></span>
                 </div>
-                {props.showRight?<div>
-                    <a href="#" className="toggler" onClick={toggleLinks}>
-                        <span className="bars"></span>
-                        <span className="bars"></span>
-                        <span className="bars"></span>
-                    </a>
-                    <div className="navbarLinks">
-                        <ul>
-                            <li className="navItems"><a href="">How To</a></li>
-                            <li className="navItems"><a href="">FAQs</a></li>
-                            <li className="navItems"><button className="logButton"><a href="/login">Login</a></button></li>
-                            <li className="navItems"><button className="regButton"><a href="/register">Signup</a></button></li>
-                        </ul>
-                    </div>
-            </div>:null}
-            
-        </nav>
+                
+
+            </nav>
         <style jsx>{`
                 .navWrapper{
-                    display:flex;
-                    justify-content:center;
+                    padding-left:60px;
                 }
                 .Navbar{
-                    display:flex;
-                    justify-content:space-between;
-                    align-items:center;
-                    background-color:white;
-                    width:80%;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 1rem 1.2rem;
                 }
-                .brandLogo{
-                    font-size:1.5rem;
-                    margin:.5rem;
-                    font-weight:bolder;
+                li {
+                    list-style: none;
                 }
-                .brandLogo a{
-                    text-decoration:none;
-                    color:#0B2840;
-                    font-family:Helvetica
+
+                a {
+                    text-decoration: none;
                 }
-                 .navbarLinks{
+                .hamburger {
+                    display: none;
+                }
+                .logo{
+                    height:32px;
+                    position:relative;
+                    bottom:12px;
+                }
+
+                .bar {
+                    display: block;
+                    width: 25px;
+                    height: 3px;
+                    margin: 5px auto;
+                    -webkit-transition: all 0.3s ease-in-out;
+                    transition: all 0.3s ease-in-out;
+                    background-color: #101010;
+                }
+                .crosspesa{
+                    font-family: 'Teko', sans-serif;
+                    background-color:#0077BE;
+                    color:white;
+                    height:40px;
+                    width:105px;
                     display:flex;
                     justify-content:center;
-                }
-
-                .navbarLinks ul{
-                    margin:0;
-                    padding:0;
-                    display:flex;
-
-                }
-                .navItems{
-                    list-style:none;
-                    cursor:pointer;
-                    margin:1rem;
-                }
-                .navItems a{
-                    text-decoration:none;
-                    color:#253655;
-                    font-size: 16px;
-                    font-weight:500 ;
-                }
-                {/*
-                .navItems button{
-                    margin-right:1rem;
-                } */}
-                .toggler{
-                    position:absolute;
-                    top:0.75rem;
-                    right:1rem;
-                    display:none;
-                    flex-direction:column;
-                    justify-content:space-between;
-                    width:30px;
-                    height:21px;
-                }
-                .bars{
-                    width:100%;
-                    background-color:black;
-                    height:3px;
-                    border-radius:10px;
-
-                }
-                .navItems button{
-                    outline: none;
-                    border: none;
-                    border-radius:3px;
-                }
-                .regButton{
-                    background-color: #2EAD4B;
-                }
-                .logButton{
-                    background-color: #37517E;
-                }
-                .regButton a,.logButton a{
-                    color:white;
-                }
-                li{
+                    align-items:center;
                     
                 }
+                .crosspesa>h4{
+                    position:relative;
+                    top:6px;
+                    font-size:28px;
+                }
+                
+                .nav-menu {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                }
+                .nav-item {
+                    margin-left: 1.8rem;
+                }
+                .signupBtn{
+                    background-color: #2EAD4B;
+                    color:white;
+                    border:none;
+                    height:36px;
+                    display:flex;
+                    align-items:center;
+                }
+                .signupBtn:hover{
+                    background-color:#2EAD4B;
+                }
+                .loginBtn{
+                    background-color: #37517E;
+                    color:white;
+                    border:none;
+                    height:36px;
+                    display:flex;
+                    align-items:center;
+                }
 
+                .nav-link{
+                    font-size: 1rem;
+                    font-weight: 600;
+                    color: #475569;
+                }
+                button>.nav-link{
+                    color:white;
+                }
+                button{
+                    border:none;
+                    border-radius:5px;
+                    height:40px;
+                }
+                .nav-link:hover{
+                    color: #482ff7;
+                }
+                .nav-logo {
+                    font-size: 2.1rem;
+                    font-weight: 500;
+                    color: #482ff7;
+                }
+                @media only screen and (max-width: 720px) {
+                    .nav-menu {
+                        position: fixed;
+                        left: -100%;
+                        top: 5rem;
+                        flex-direction: column;
+                        background-color: #fff;
+                        width: 100%;
+                        border-radius: 10px;
+                        text-align: center;
+                        transition: 0.3s;
+                        box-shadow:
+                            0 10px 27px rgba(0, 0, 0, 0.05);
+                    }
+                    .nav-menu.active {
+                        left: 0;
+                    }
 
-                @media (max-width:700px){
-                    .Navbar{
-                        width:100%;
+                    .nav-item {
+                        margin: 2.5rem 0;
+                    }
+
+                    .hamburger {
+                        display: block;
+                        cursor: pointer;
                     }
                 }
-                @media (max-width:540px){
-                    .toggler{
-                        display:flex;
-                    }   
-                    .navbarLinks{
-                        display:none;
 
-                    }
-                    .Navbar{
-                        flex-direction:column;
-                        align-items:center;
-                    }
-                    .navbarLinks ul{
-                        flex-direction:column;
-                        width:100%;
-                        justify-content:center;
-                    }
-                    .navItems{
-                        text-align:center
-                    }
-                    .navItems a{
-                        padding:.5rem 1rem;
-                        text-align:center;
-                    }
-                    .navbarLinks.active{
-                        display:flex;
-                    }
-                }
             `}
             </style>
         </div>

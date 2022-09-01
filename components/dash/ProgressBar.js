@@ -10,13 +10,15 @@ const ProgressBar=(props)=>{
 
     useEffect(()=>{
         let lists=document.querySelectorAll('li')
+        console.log(props.status);
         
         for (let i = 0; i <props.status; i++) {
             lists[i].classList.add('active')
-            lists[i].classList.add('complete')
+            // lists[i].classList.add('complete')
             lists[i].classList.add('next')
             
         }
+        // console.log(lists);
     })
     
     

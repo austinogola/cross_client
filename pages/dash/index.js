@@ -5,6 +5,7 @@ import Help from "components/dash/Help";
 import Cross from "components/dash/Cross";
 import { usePageContext } from 'context/page'
 import { useState,useEffect } from 'react'
+import Logo from "components/Logo";
 
 const Dash=()=>{
     const [showPage,setShowPage]=usePageContext()
@@ -31,7 +32,6 @@ const Dash=()=>{
 
     checkAuth()
 
-    console.log(showPage);
 
     
 
@@ -95,7 +95,7 @@ const Dash=()=>{
                             </div>
                         </div>
     
-                        <div className="bodyContent border">
+                        <div className="bodyContent">
                             <div className="bodyWrapper">
                                 {
                                     showPage=='HOME'?<Home/>
@@ -193,8 +193,9 @@ const Dash=()=>{
     
                                     }
                                     .bodyWrapper{
-                                        width:60%;
+                                        width:90%;
                                         padding-top:50px;
+                                       
                                     }
     
                                     @media only screen and (max-width:860px){

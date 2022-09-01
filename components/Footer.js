@@ -1,28 +1,29 @@
-
+import Logo from "./Logo"
 
 const Footer=()=>{
     return(
         <div className="Footer">
             <div className="footerWrapper container">
-                <div className="">
-                    <h3 style={{textAlign:'center',color:'white'}}>LogoHere</h3>
-                    <div className="d-flex">
-                        <div className="footerNav">
-                            <div>Home</div>
-                            <div>About</div>
-                            <div>How To</div>
-                            <div>Contact Us</div>
+                    <div className="logo">
+                        <Logo/>
+                    </div>
+                    
+                    <div className="footerNav">
+                        <div>
+                            <div className="navItems hom"><a href="/">Home</a></div>
+                            <div className="navItems abt"><a href="/about">About</a> </div>
+                            <div className="navItems how"><a href="/how">How To</a> </div>
+                            <div className="navItems con"><a href="/contact">Contact Us</a> </div>
                         </div>
                     </div>
-                </div>
                 <div className=" row mt-3">
-                   <div className=" col-4">SUPPORTED CARDS AND NETWORKS:</div>
+                   {/* <div className=" col-4">SUPPORTED CARDS AND NETWORKS:</div>
                    <div className=" col-1"><img src="/images/mpesa1.png" alt="" /></div>
                    <div className=" col-1"><img src="/images/airtel1.png" alt="" /></div>
                    <div className=" col-1"><img src="/images/airtel1.png" alt="" /></div>
                    <div className=" col-1"><img src="/images/airtel1.png" alt="" /></div>
                    <div className=" col-1"><img src="/images/airtel1.png" alt="" /></div>
-                   <div className=" col-1"><img src="/images/airtel1.png" alt="" /></div>
+                   <div className=" col-1"><img src="/images/airtel1.png" alt="" /></div> */}
                 </div>
             </div>
             <div className=" mt-5 last">
@@ -41,14 +42,41 @@ const Footer=()=>{
                 .bottom{
                     background-color:#253655;
                 }
-                .footerWrapper>div>div{
-                    display:flex;
-                    justify-content:center;
-                }
+                
                 .footerNav{
-                    width:70%;
+                    
                     display:flex;
                     justify-content:center;
+                    
+                }
+                .footerNav>div{
+                    display:flex;
+                    justify-content:justify-content:space-between;;
+                    
+                }
+                .navItems{
+                    padding:10px;
+                    cursor:pointer;
+                }
+                .navItems>a{
+                    color:#282529;
+                    text-decoration:none;
+                }
+                .hom{
+                    border-right:2px solid black;
+                    padding-right:5px;
+                }
+                .abt{
+                  border-right:2px solid black;  
+                }
+                .how{
+                    border-right:2px solid black; 
+                }
+                .logo{
+                    display:flex;
+                    align-items:center;
+                    justify-content:center;
+                    margin-bottom:30px;
                 }
                 .footerNav>div{
                     margin:15px;
@@ -58,7 +86,9 @@ const Footer=()=>{
                 }
                 .last{
                     background-color:#2EAD4B;
-                    text-align:center;
+                    display:flex;
+                    justify-content:center;
+                    align-items:center;
                     color:white;
                     height:30px;
                 }

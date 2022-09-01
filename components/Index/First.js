@@ -35,7 +35,7 @@ const First=()=>{
                     .firstContent{
                         padding:20px;
                         display:grid;
-                        grid-template-rows:70% 30%;
+                        grid-template-rows:50% 50%;
 
                     }
                     .firstText{
@@ -43,6 +43,8 @@ const First=()=>{
                         letter-spacing: 2px;
                         line-height: 1.2;
                         font-weight:bold;
+                        height:200px;
+                        margin-bottom:20px;
                     }
                     .firstText>div{
                         display:flex;
@@ -67,7 +69,8 @@ const First=()=>{
                     .signUp{
                         display:flex;
                         justify-content:center;
-                        align-items:center;
+                        align-items:top;
+                        
                     }
                     .signUp>button{
                         background-color:#2EAD4B;
@@ -79,6 +82,7 @@ const First=()=>{
                         color:white;
                         font-size:16px;
                         transition:.3s;
+                        
                     }
                     .signUp>button a{
                         color:white;
@@ -94,13 +98,16 @@ const First=()=>{
                             display:block;
                         }
                         .firstContent{
-                            margin-bottom:50px;
+                            margin-bottom:20px;
                         }
                         .firstText{
-                            margin-bottom:50px;
+                            margin-bottom:80px;
                         }
                         .signUp>button{
                             width:50%;
+                        }
+                        .signUp{
+                           
                         }
                     }
                 `}

@@ -2,7 +2,7 @@
 
 const Review=(props)=>{
     return(
-        <div className="col-4 p-3">
+        <div className="col-12 col-md-6 p-3">
             <div className="card p-2">
                 <h6>{props.name}, {props.date}, {props.time}</h6>
                 <p>{props.review}</p>

@@ -2,77 +2,79 @@ import Navbar from "components/Navbar"
 import Footer from "components/Footer"
 import { useState } from "react"
 import { useRouter } from "next/router"
+import RegisterBody from "components/RegisterBody"
 
 const Register=()=>{
-    const [userData,setUserData]=useState({
-        fname:'',
-        lname:'',
-        email:'',
-        phone:'',
-        password:'',
-        confirmPassword:''
-    })
+    // const [userData,setUserData]=useState({
+    //     fname:'',
+    //     lname:'',
+    //     email:'',
+    //     phone:'',
+    //     password:'',
+    //     confirmPassword:''
+    // })
 
-    const [err,setErr]=useState('')
+    // const [err,setErr]=useState('')
 
-    const router=useRouter()
+    // const router=useRouter()
 
-    const pwdSame=(first,second)=>{
-        return first===second
-    }
+    // const pwdSame=(first,second)=>{
+    //     return first===second
+    // }
 
-    const handleSubmit=async(e)=>{
-        e.preventDefault()
-        setErr('')
-        if(pwdSame(userData.password,userData.confirmPassword)){
-            const {fname,lname,phone,email,password}=userData
+    // const handleSubmit=async(e)=>{
+    //     e.preventDefault()
+    //     setErr('')
+    //     if(pwdSame(userData.password,userData.confirmPassword)){
+    //         const {fname,lname,phone,email,password}=userData
 
-            fetch('http://localhost:4000/auth/register',{
-                method:'POST',
-                headers:{
-                    'Content-Type':"application/json"
-                },
-                body:JSON.stringify({
-                    fname:fname,
-                    lname:lname,
-                    phone:phone,
-                    email:email,
-                    password:password
-                })
-            }).then(async response=>{
-                const res=await response.json()
-                if(res){
-                    if(res.token){
-                        localStorage.setItem('token',res.token)
-                        router.push('/dashboard')
-                    }else{
-                        setErr('User with Email or Phone already exists.Please login instead')
-                    }
-                }else{
-                    setErr('Server Error.Please try again later')
-                }
-            }).catch(error=>{
-                setErr('Server Error.Please try again later')
-            })
+    //         fetch('http://localhost:4000/auth/register',{
+    //             method:'POST',
+    //             headers:{
+    //                 'Content-Type':"application/json"
+    //             },
+    //             body:JSON.stringify({
+    //                 fname:fname,
+    //                 lname:lname,
+    //                 phone:phone,
+    //                 email:email,
+    //                 password:password
+    //             })
+    //         }).then(async response=>{
+    //             const res=await response.json()
+    //             if(res){
+    //                 if(res.token){
+    //                     localStorage.setItem('token',res.token)
+    //                     router.push('/dashboard')
+    //                 }else{
+    //                     setErr('User with Email or Phone already exists.Please login instead')
+    //                 }
+    //             }else{
+    //                 setErr('Server Error.Please try again later')
+    //             }
+    //         }).catch(error=>{
+    //             setErr('Server Error.Please try again later')
+    //         })
 
             
 
-        }else{
+    //     }else{
 
-            setErr('Please ensure passwords fields are matching')
-        }
-    }
+    //         setErr('Please ensure passwords fields are matching')
+    //     }
+    // }
     
-    const handleChange = (event) => {
-        event.preventDefault()
-        const value=event.target.value
-        setUserData({...userData,[event.target.name]:value});
-      }
+    // const handleChange = (event) => {
+    //     event.preventDefault()
+    //     const value=event.target.value
+    //     setUserData({...userData,[event.target.name]:value});
+    //   }
 
     return(
         <div>
             <Navbar showRight={false}/>
-            <div className="regBody">
+            <RegisterBody/>
+            {/* <div className="regBody">
                 <div>
                     <div className="formText">
                         <h2>Register account</h2>
@@ -111,7 +113,7 @@ const Register=()=>{
                         </div>
                     </form>
                 </div>
-            </div>
+            </div> */}
             <style jsx>{`
                 .regBody{
                     background-color:#37517E;
@@ -181,7 +183,6 @@ const Register=()=>{
                     }
                 }
             `}</style>
-            <Footer/>
         </div>
     )
 }

@@ -16,32 +16,31 @@ const Third=()=>{
                     <h4>Supported Platforms</h4>
                     <div className="container">
                         <div className="row">
-                            <div className="col-3 border">
+                            <div className="col-12 col-md-6 col-lg-4 border">
                                 <img className='mpesa' src='/images/mpesa3.png' alt="mpesa" />
                             </div>
-                            <div className="col-3 border">
+                            <div className="col-12 col-md-6 col-lg-4 border">
                                 <img className='air' src='/images/airtel1.png' alt="" />
                             </div>
-                            <div className="col-3 border">
+                            <div className="col-12 col-md-6 col-lg-4 border">
                                 <img className='skr' src='/images/skrill1.png' alt="" />
                             </div>
-                            <div className="col-3 border">
-                                <img className='mpesa' src='/images/mpesa3.png' alt="mpesa" />
+                            <div className="col-12 col-md-6 col-lg-4 border">
+                                <img className='pm' src='/images/perfect-money1.png' alt="" />
+                            </div>
+                            <div className="col-3 d-md-none">
+                                
+                            </div>
+                            <div className="col-12 col-md-6 col-lg-4 border">
+                                <img className='ppal' src='/images/paypal1.png' alt="" />
+                            </div>
+                            <div className="col-12 col-md-6 col-lg-4 border">
+                                <img className='net' src='/images/neteller1.png' alt="" />
                             </div>
                         </div>
                         <div className="row nd">
-                            <div className="col-3 border">
-                                <img className='pm' src='/images/perfect-money1.png' alt="" />
-                            </div>
                             
-                            <div className="col-3 border">
-                                <img className='ppal' src='/images/paypal1.png' alt="" />
-                            </div>
-                            <div className="col-3 border">
-                                <img className='net' src='/images/neteller1.png' alt="" />
-                            </div>
-                            <div className="col-3 border">
-                                <img className='pm' src='/images/perfect-money1.png' alt="" />
+                            <div className="col-3 d-md-none">
                             </div>
                         </div>
                     </div>
@@ -59,11 +58,23 @@ const Third=()=>{
                     img{
                         
                     }
+                    .col-3{
+                        display:flex;
+                        align-items:center;
+                        justify-content:center;
+                    }
+                    .col-12{
+                        height:200px;
+                        display:flex;
+                        align-items:center;
+                        justify-content:center;
+                    }
+
                     .nd>div{
                         padding-top:20px;
                     }
                     .pm,.mpesa{
-                        max-width:100%;
+                        max-width:90%;
                     }
                     .ppal,.net{
                         max-width:90%; 

@@ -1,8 +1,10 @@
 import { FiCircle,FiDisc } from "react-icons/fi";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import ProgressBar from "components/dash/ProgressBar";
 import Initiated from "components/transfer/Initiated";
+import Pending from "components/transfer/Pending";
+import Processing from 'components/transfer/Processing'
 
 const Mimi=()=>{
     const router = useRouter()
@@ -11,34 +13,44 @@ const Mimi=()=>{
     const [transaction,setTransaction]=useState({
         
     })
+    const [status,setStatus]=useState('initiated')
 
-
-
-    try{
-        fetch(`http://localhost:4000/transaction/${trans_id}`,{
-            method:'GET',
-            headers:{
-                'Content-Type':"application/json",
-                "jwtToken":localStorage.token
-            }
-        }).then(async response=>{
-            const resp=await response.json()
-            const trans=resp.transaction;
-            setTransaction(trans)
-            console.log(transaction.status);
-
-        })
-    }catch(err){
-        console.log(err.message);
+    const getTrans=()=>{
+        try{
+            fetch(`http://localhost:4000/transaction/${trans_id}`,{
+                method:'GET',
+                headers:{
+                    'Content-Type':"application/json",
+                    "jwtToken":localStorage.token
+                }
+            }).then(async response=>{
+                const resp=await response.json()
+                const trans=resp.transaction;
+                transaction=trans
+                setStatus(transaction.status)
+                
+    
+            })
+        }catch(err){
+            console.log(err.message);
+        }
     }
+
+    getTrans()
+
+    // useEffect(()=>{
+    //     console.log(transaction);
+    // })
 
     // const statuses=['initiated','details','pending','processing','complete','canceled']
     const statuses={
-        'initiated':1,
-        'pending':2,
-        'processing':3,
+        'initiated':2,
+        'pending':3,
+        'processing':4,
         'complete':5
     }
+
+    console.log(statuses[status]);
 
     return(
         <div>
@@ -48,13 +60,18 @@ const Mimi=()=>{
                 </div>
             </div>
 
-           
 
-           <ProgressBar status={statuses[transaction.status]}/>
+           <ProgressBar status={statuses[status]}/>
 
-        
+    
             <div className="container">
-                <Initiated />
+            {
+            status=='initiated'?<Initiated/>:
+            status='pending'?<Pending/>:
+            status='processing'?<Processing/>:
+            status='complete'?<Complete/>:null
+            
+           }
             </div>
 
 
